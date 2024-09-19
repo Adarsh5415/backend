@@ -1,5 +1,5 @@
-import {v2 as cloudinary} from "cloudinary"
-import fs from 'fs'
+import {v2 as cloudinary} from "cloudinary";
+import fs from 'fs';
 
     // Configuration
     cloudinary.config({ 
@@ -18,9 +18,9 @@ import fs from 'fs'
                 resource_type:"auto"
             })
             //files has been uploaded successfully
-            console.log("file has been uploaded on cloudinary",
-                response.url);
-                return response
+            // console.log("file has been uploaded on cloudinary",response.url);
+            fs.unlinkSync(localFilePath)   
+            return response;
         }catch(error){
             fs.unlinkSync(localFilePath) //remove the locally saved temporary file as 
             //the upload operstion got failed

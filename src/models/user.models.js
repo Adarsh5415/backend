@@ -1,6 +1,6 @@
-import mongoose,{Schema} from "mongoose";
-import jwt from JsonWebTokenError;
-import bcrypt from bcrypt;
+import {mongoose,Schema} from "mongoose";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 const userSchema= new Schema(
     {
@@ -10,10 +10,10 @@ const userSchema= new Schema(
             lowercase:true,
             unique:true,
             trim:true,
-            index:ture //used for serching in db by this it is searchable
+            index:true //used for serching in db by this it is searchable
 
         },
-        eamil:{
+        email:{
             type:String,
             required:true,
             lowercase:true,
@@ -30,7 +30,7 @@ const userSchema= new Schema(
             type:String,  //cloudinary url
             required:true,
         },
-        coverImage:{
+        coverimage:{
             type:String
         },
         watchHistory:[
@@ -90,4 +90,4 @@ userSchema.methods.generateRefreshToken=function(){
 }
 
 
-export const User = mongo.model("User",userSchema)
+export const User = mongoose.model("User",userSchema)
